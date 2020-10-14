@@ -1,0 +1,23 @@
+{
+    "name": "cubesystems/omnipay-swedbank-banklink-estonia",
+    "description": "Swedbank Estonia banklink omnipay package",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Miks Mikelsons",
+            "email": "miks@cubesystems.lv"
+        }
+    ],
+    "autoload": {
+      "psr-4": { "Omnipay\\SwedbankBanklinkEstonia\\" : "src/" }
+    },
+    "require": {
+      "omnipay/common": "~3.0"
+    },
+    "require-dev": {
+      "omnipay/tests": "~3.1",
+      "squizlabs/php_codesniffer": "^3",
+      "phpro/grumphp": "^v1",
+      "php-coveralls/php-coveralls": "^2.1"
+    }
+}
