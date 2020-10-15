@@ -1,6 +1,7 @@
 {
     "name": "cubesystems/omnipay-swedbank-banklink-estonia",
     "description": "Swedbank Estonia banklink omnipay package",
+    "license": "MIT",
     "type": "library",
     "authors": [
         {
