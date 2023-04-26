@@ -100,7 +100,7 @@ class CompleteRequest extends AbstractRequest
 
         //check for missing fields, will throw exc. on missing fields
         foreach ($responseFields as $fieldName => $usedInHash) {
-            if (! isset($response[$fieldName])) {
+            if ($usedInHash && ! isset($response[$fieldName])) {
                 throw new InvalidRequestException("The $fieldName parameter is required");
             }
         }
