@@ -106,4 +106,21 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         return $this->getParameter('gatewayUrl');
     }
+
+    /**
+     * @param int $value
+     * @return $this
+     */
+    public function setSignatureAlgorithm($value)
+    {
+        return $this->setParameter('signatureAlgorithm', $value);
+    }
+
+    /**
+     * @return int
+     */
+    public function getSignatureAlgorithm()
+    {
+        return $this->getParameter('signatureAlgorithm');
+    }
 }

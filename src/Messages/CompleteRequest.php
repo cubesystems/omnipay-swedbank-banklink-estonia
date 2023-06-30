@@ -128,7 +128,8 @@ class CompleteRequest extends AbstractRequest
             $controlCodeFields,
             $responseData->get('VK_MAC'),
             $this->getPublicCertificatePath(),
-            self::ENCODING_UTF_8
+            self::ENCODING_UTF_8,
+            $this->getSignatureAlgorithm()
         )) {
             throw new InvalidRequestException('Data is corrupt or has been changed by a third party');
         }

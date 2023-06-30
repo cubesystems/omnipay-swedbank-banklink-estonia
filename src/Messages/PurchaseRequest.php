@@ -56,7 +56,8 @@ class PurchaseRequest extends AbstractRequest
             $data,
             self::ENCODING_UTF_8,
             $this->getPrivateCertificatePath(),
-            $this->getPrivateCertificatePassphrase()
+            $this->getPrivateCertificatePassphrase(),
+            $this->getSignatureAlgorithm()
         );
     }
 
