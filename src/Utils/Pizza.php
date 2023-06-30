@@ -10,14 +10,14 @@ namespace Omnipay\SwedbankBanklinkEstonia\Utils;
 class Pizza
 {
     // Returns base64 encoded control code
-    public static function generateControlCode(array $data, $encoding, $privateCertPath, $passPhrase)
+    public static function generateControlCode(array $data, $encoding, $privateCertPath, $passPhrase, $algorithm)
     {
         $hash = self::createHash($data, $encoding);
 
         // Compute controlCode
         $certContent = file_get_contents($privateCertPath);
         $privateKey = openssl_get_privatekey($certContent, $passPhrase);
-        openssl_sign($hash, $controlCode, $privateKey);
+        openssl_sign($hash, $controlCode, $privateKey, $algorithm);
         openssl_free_key($privateKey);
 
         return base64_encode($controlCode);
@@ -39,10 +39,11 @@ class Pizza
      * @param $data array key/value pairs
      * @param $controlCodeEncoded
      * @param $privateCertPath
+     * @param $algorithm
      * @return bool
      * @throws \RuntimeException
      */
-    public static function isValidControlCode(array $data, $signatureEncoded, $publicCertPath, $encoding)
+    public static function isValidControlCode(array $data, $signatureEncoded, $publicCertPath, $encoding, $algorithm)
     {
         $hash = self::createHash($data, $encoding);
         $signature = base64_decode($signatureEncoded);
@@ -53,7 +54,7 @@ class Pizza
             throw new \RuntimeException('Certificate error :' . openssl_error_string());
         }
 
-        $result = openssl_verify($hash, $signature, $publicKey);
+        $result = openssl_verify($hash, $signature, $publicKey, $algorithm);
 
         openssl_free_key($publicKey);
 

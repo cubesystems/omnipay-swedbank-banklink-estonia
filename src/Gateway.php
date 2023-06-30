@@ -36,6 +36,7 @@ class Gateway extends AbstractGateway
 
             //Global parameters for requests will be set via gateway
             'language'              => 'EST',
+            'signatureAlgorithm'    => OPENSSL_ALGO_SHA1,
         );
     }
 
@@ -161,8 +162,6 @@ class Gateway extends AbstractGateway
         return $this->getParameter('publicCertificatePath');
     }
 
-
-
     /**
      * @return mixed
      */
@@ -177,5 +176,22 @@ class Gateway extends AbstractGateway
     public function setLanguage($value)
     {
         return $this->setParameter('language', $value);
+    }
+
+    /**
+     * @return int
+     */
+    public function getSignatureAlgorithm()
+    {
+        return $this->getParameter('signatureAlgorithm');
+    }
+
+    /**
+     * @param int $value
+     * @return $this
+     */
+    public function setSignatureAlgorithm($value)
+    {
+        return $this->setParameter('signatureAlgorithm', $value);
     }
 }
