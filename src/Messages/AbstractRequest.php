@@ -123,4 +123,21 @@ abstract class AbstractRequest extends CommonAbstractRequest
     {
         return $this->getParameter('signatureAlgorithm');
     }
+
+    /**
+     * @param string $value
+     * @return $this
+     */
+    public function setVersion($value)
+    {
+        return $this->setParameter('version', $value);
+    }
+
+    /**
+     * @return string
+     */
+    public function getVersion()
+    {
+        return $this->getParameter('version');
+    }
 }
