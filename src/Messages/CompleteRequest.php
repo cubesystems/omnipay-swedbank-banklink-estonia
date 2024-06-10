@@ -39,7 +39,7 @@ class CompleteRequest extends AbstractRequest
         'VK_SND_ID' => true,
         'VK_REC_ID' => true,
         'VK_STAMP' => true,
-        'VK_T_NO' => true,
+        'VK_T_NO' => false,
         'VK_AMOUNT' => true,
         'VK_CURR' => true,
         'VK_REC_ACC' => true,
