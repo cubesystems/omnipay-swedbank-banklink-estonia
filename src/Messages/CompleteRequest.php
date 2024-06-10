@@ -39,7 +39,7 @@ class CompleteRequest extends AbstractRequest
         'VK_SND_ID' => true,
         'VK_REC_ID' => true,
         'VK_STAMP' => true,
-        'VK_T_NO' => false,
+        'VK_T_NO' => true,
         'VK_AMOUNT' => true,
         'VK_CURR' => true,
         'VK_REC_ACC' => true,
@@ -100,7 +100,7 @@ class CompleteRequest extends AbstractRequest
 
         //check for missing fields, will throw exc. on missing fields
         foreach ($responseFields as $fieldName => $usedInHash) {
-            if ($usedInHash && ! isset($response[$fieldName])) {
+            if ($usedInHash && ! array_key_exists($fieldName, $response)) {
                 throw new InvalidRequestException("The $fieldName parameter is required");
             }
         }
